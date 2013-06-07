@@ -1,0 +1,13 @@
+name: MailChimp
+package-name: aldryn-mailchimp
+url: https://github.com/aldryn/aldryn-mailchimp
+author:
+  name: Divio AG
+  url: https://www.divio.ch
+installed-apps:
+  - aldryn_mailchimp
+version: 0.0.1
+description: Plugins for MailChimp integration.
+license:
+  name: BSD
+  text: !literal-include LICENSE.txt

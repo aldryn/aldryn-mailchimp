@@ -1,0 +1,7 @@
+{% load i18n %}
+
+<form action="{% url subscription %}" method="POST">
+    {% csrf_token %}
+	{{ form.as_ul }}
+	<input type="submit" value="{% trans 'Subscribe' %}"/>
+</form>
