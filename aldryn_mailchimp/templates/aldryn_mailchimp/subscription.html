@@ -1,7 +1,5 @@
-{% load i18n %}
+{% extends "aldryn_mailchimp/base.html" %}
 
-<form action="{% url subscription %}" method="POST">
-    {% csrf_token %}
-	{{ form.as_ul }}
-	<input type="submit" value="{% trans 'Subscribe' %}"/>
-</form>
+{% block mailchimp_content %}
+    {% include "aldryn_mailchimp/snippets/_subscription.html" %}
+{% endblock %}

@@ -10,7 +10,7 @@ from aldryn_mailchimp import forms
 
 class SubscriptionPlugin(CMSPluginBase):
 
-    render_template = 'aldryn_mailchimp/subscription.html'
+    render_template = 'aldryn_mailchimp/snippets/_subscription.html'
     name = _('Subscription')
     model = models.SubscriptionPlugin
     module = _('MailChimp')

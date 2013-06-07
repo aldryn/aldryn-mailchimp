@@ -7,7 +7,7 @@ from cms.models.pluginmodel import CMSPlugin
 
 class SubscriptionPlugin(CMSPlugin):
 
-    list_id = models.PositiveIntegerField(_('List ID'))
+    list_id = models.CharField(_('List ID'), max_length=20)
 
     def __unicode__(self):
         return str(self.list_id)
