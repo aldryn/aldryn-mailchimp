@@ -1,0 +1,4 @@
+include LICENSE.txt
+include README.rst
+recursive-include aldryn_mailchimp/templates *
+recursive-exclude * *.pyc
