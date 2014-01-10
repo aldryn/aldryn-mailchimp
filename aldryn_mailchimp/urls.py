@@ -5,5 +5,5 @@ from aldryn_mailchimp.views import SubscriptionView
 
 urlpatterns = patterns(
     '',
-    url(r'^subscribe/$', SubscriptionView.as_view(), name='subscription'),
+    url(r'^subscribe/$', SubscriptionView.as_view(), name='aldryn-mailchimp-subscribe'),
 )

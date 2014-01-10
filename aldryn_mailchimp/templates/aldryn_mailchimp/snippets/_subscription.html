@@ -1,7 +1,7 @@
 {% load i18n %}
 
-<form class="mailchimp-subscription-form" action="{% url "subscription" %}" method="POST">
-    {% csrf_token %}
+<form class="mailchimp-subscription-form" action="{% url "aldryn-mailchimp-subscribe" %}" method="POST">
+	{% csrf_token %}
 	{{ form.as_ul }}
 	<input type="submit" value="{% trans 'Subscribe' %}"/>
 </form>
