@@ -17,7 +17,7 @@ class SubscriptionPlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         request = context['request']
-        context['form'] = forms.SubscriptionForm(initial={'list_id': instance.list_id,
+        context['form'] = forms.SubscriptionForm(initial={'plugin_id': instance.pk,
                                                           'redirect_url': request.get_full_path()})
         return context
 
