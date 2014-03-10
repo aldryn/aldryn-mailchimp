@@ -6,7 +6,7 @@ author:
   url: https://www.divio.ch
 installed-apps:
   - aldryn_mailchimp
-version: 0.0.5
+version: 0.0.6
 description: Plugins for MailChimp integration.
 license:
   name: BSD
