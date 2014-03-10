@@ -22,7 +22,7 @@ class SubscriptionView(FormView):
         try:
             mailchimp_client.listSubscribe(id=plugin.list_id, email_address=form.cleaned_data['email'])
         except Exception, e:
-            messages.error(self.request, e.error)
+            messages.error(self.request, _(u'Oops, something must have gone wrong. Please try again later.'))
         else:
             messages.success(self.request, _(u'Successfully subscribed for mailing list.'))
         return redirect(form.cleaned_data['redirect_url'])
