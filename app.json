@@ -1,0 +1,18 @@
+{
+	"name": "Mailchimp",
+	"description": "Plugin for MailChimp integration.",
+	"version": "0.0.6",
+	"url": "https://github.com/aldryn/aldryn-mailchimp",
+	"package-name": "aldryn-mailchimp",
+	"installed-apps": [
+		"aldryn_mailchimp"
+	],
+	"author": {
+		"name": "Divio AG",
+		"url": "https://www.divio.ch"
+	},
+	"license": {
+		"name": "BSD",
+		"text": "!literal-include LICENSE.txt"
+	}
+}
