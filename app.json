@@ -1,7 +1,7 @@
 {
 	"name": "Mailchimp",
 	"description": "Plugin for MailChimp integration.",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"url": "https://github.com/aldryn/aldryn-mailchimp",
 	"package-name": "aldryn-mailchimp",
 	"installed-apps": [
