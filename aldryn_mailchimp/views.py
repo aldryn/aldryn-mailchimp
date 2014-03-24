@@ -7,13 +7,13 @@ from django.views.generic import FormView
 
 import mailchimp
 
-from aldryn_mailchimp.forms import SubscriptionForm
+from aldryn_mailchimp.forms import SubscriptionPluginForm
 from aldryn_mailchimp.models import SubscriptionPlugin
 
 
 class SubscriptionView(FormView):
 
-    form_class = SubscriptionForm
+    form_class = SubscriptionPluginForm
     template_name = 'aldryn_mailchimp/subscription.html'
 
     def form_valid(self, form):
