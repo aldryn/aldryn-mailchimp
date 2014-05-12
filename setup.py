@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from setuptools import setup
+from setuptools import setup, find_packages
 from aldryn_mailchimp import __version__
 
 
@@ -26,7 +26,7 @@ setup(
     author_email='info@divio.ch',
     url='https://github.com/aldryn/aldryn-mailchimp',
     install_requires=['python-mailchimp'],
-    packages=['aldryn_mailchimp'],
+    packages=find_packages(),
     license='LICENSE.txt',
     platforms=['OS Independent'],
     classifiers=CLASSIFIERS,
