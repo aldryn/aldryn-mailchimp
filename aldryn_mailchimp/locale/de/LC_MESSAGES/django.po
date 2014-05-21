@@ -7,23 +7,55 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-10 10:42+0100\n"
+"POT-Creation-Date: 2014-05-21 15:58+0200\n"
 "PO-Revision-Date: 2014-03-10 11:06+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.7\n"
 
+#: cms_plugins.py:16
+msgid "Subscription"
+msgstr "Registration"
+
+#: cms_plugins.py:18
+msgid "MailChimp"
+msgstr ""
+
+#: forms.py:8
+msgid "E-mail"
+msgstr ""
+
+#: models.py:10
+msgid "List ID"
+msgstr "Listen-ID"
+
+#: views.py:15
+msgid "Invalid API-Key"
+msgstr "Ungültiger API-Schlüssel"
+
+#: views.py:16
+msgid "The selected list does not exist."
+msgstr "Die gewählte Liste existiert nicht"
+
+#: views.py:17 views.py:18
+msgid "You are already subscribed to our list."
+msgstr "Sie haben sich bereits für unsere Liste registriert."
+
+#: views.py:36
 msgid "Oops, something must have gone wrong. Please try again later."
 msgstr ""
 "Da scheint ein Fehler passiert zu sein. Bitte versuchen Sie es später noch "
 "einmal."
 
-msgid "Successfully subscribed for mailing list."
+#: views.py:39
+msgid "You have successfully subscribed to our mailing list."
 msgstr "Ihre Registrierung für den Newsletter war erfolgreich."
 
+#: templates/aldryn_mailchimp/snippets/_subscription.html:6
 msgid "Subscribe"
 msgstr "Registrieren"
