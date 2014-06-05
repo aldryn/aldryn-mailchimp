@@ -5,10 +5,10 @@ from django.shortcuts import redirect, get_object_or_404
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import FormView
 
-import mailchimp
+from pyrate.services import mailchimp
 
-from aldryn_mailchimp.forms import SubscriptionPluginForm
-from aldryn_mailchimp.models import SubscriptionPlugin
+from .forms import SubscriptionPluginForm
+from .models import SubscriptionPlugin
 
 
 ERROR_MESSAGES = {
@@ -25,10 +25,10 @@ class SubscriptionView(FormView):
     template_name = 'aldryn_mailchimp/subscription.html'
 
     def form_valid(self, form):
-        mailchimp_client = mailchimp.MailChimp(settings.MAILCHIMP_API_KEY)
+        h = mailchimp.MailchimpPyrate(settings.MAILCHIMP_API_KEY)
         plugin = get_object_or_404(SubscriptionPlugin, pk=form.cleaned_data['plugin_id'])
         try:
-            mailchimp_client.listSubscribe(id=plugin.list_id, email_address=form.cleaned_data['email'])
+            h.subscribe_to_list(list_id=plugin.list_id, user_email=form.cleaned_data['email'])
         except Exception, e:
             if hasattr(e, 'code') and e.code in ERROR_MESSAGES:
                 message = ERROR_MESSAGES.get(e.code)

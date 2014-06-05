@@ -3,6 +3,9 @@
 from setuptools import setup, find_packages
 from aldryn_mailchimp import __version__
 
+REQUIREMENTS = [
+    'pyrate>=0.5a5'
+]
 
 CLASSIFIERS = [
     'Development Status :: 2 - Pre-Alpha',
@@ -25,7 +28,7 @@ setup(
     author='Divio AG',
     author_email='info@divio.ch',
     url='https://github.com/aldryn/aldryn-mailchimp',
-    install_requires=['python-mailchimp'],
+    install_requires=REQUIREMENTS,
     packages=find_packages(),
     license='LICENSE.txt',
     platforms=['OS Independent'],
