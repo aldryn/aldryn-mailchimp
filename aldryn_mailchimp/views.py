@@ -7,6 +7,7 @@ from django.views.generic import FormView
 
 from pyrate.services import mailchimp
 
+from .utils import get_language_for_code
 from .forms import SubscriptionPluginForm
 from .models import SubscriptionPlugin
 
@@ -27,8 +28,15 @@ class SubscriptionView(FormView):
     def form_valid(self, form):
         h = mailchimp.MailchimpPyrate(settings.MAILCHIMP_API_KEY)
         plugin = get_object_or_404(SubscriptionPlugin, pk=form.cleaned_data['plugin_id'])
+
+        merge_vars = None
+        if plugin.assign_language:
+            language = get_language_for_code(self.request.LANGUAGE_CODE)
+            if language:
+                merge_vars = {'mc_language': language}
+
         try:
-            h.subscribe_to_list(list_id=plugin.list_id, user_email=form.cleaned_data['email'])
+            h.subscribe_to_list(list_id=plugin.list_id, user_email=form.cleaned_data['email'], merge_vars=merge_vars)
         except Exception, e:
             if hasattr(e, 'code') and e.code in ERROR_MESSAGES:
                 message = ERROR_MESSAGES.get(e.code)
