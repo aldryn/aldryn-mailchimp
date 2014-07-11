@@ -6,6 +6,10 @@ from django.db import models
 
 
 class Migration(DataMigration):
+    depends_on = (
+        ("cms", "0060_auto__add_field_page_xframe_options.py"),
+    )
+
     def forwards(self, orm):
         # remove app
         for page in orm['cms.Page'].objects.all():
