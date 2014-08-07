@@ -1,0 +1,21 @@
+{% extends "fullwidth.html" %}
+{% load sekizai_tags %}
+
+{% block content %}
+    {% addtoblock 'js' %}
+    <script language="javascript" type="text/javascript">
+      function resizeIframe(obj) {
+        obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+      }
+    </script>
+    {% endaddtoblock %}
+
+    {% if object.content_html %}
+        <iframe
+            src="{% url 'mailchimp_campaign_detail' pk=object.pk slug=object.slug %}?iframe"
+            width="100%" onload='javascript:resizeIframe(this);'>
+        </iframe>
+    {% else %}
+        <pre>{{ object.content_text }}</pre>
+    {% endif %}
+{% endblock content %}

@@ -3,13 +3,13 @@ from django.conf import settings
 from django.contrib import messages
 from django.shortcuts import redirect, get_object_or_404
 from django.utils.translation import ugettext_lazy as _
-from django.views.generic import FormView
+from django.views.generic import FormView, DetailView
 
 from pyrate.services import mailchimp
 
 from .utils import get_language_for_code
 from .forms import SubscriptionPluginForm
-from .models import SubscriptionPlugin
+from .models import SubscriptionPlugin, Campaign
 
 
 ERROR_MESSAGES = {
@@ -46,3 +46,18 @@ class SubscriptionView(FormView):
         else:
             messages.success(self.request, _(u'You have successfully subscribed to our mailing list.'))
         return redirect(form.cleaned_data['redirect_url'])
+
+
+class CampaignDetail(DetailView):
+    model = Campaign
+
+    @property
+    def template_name_suffix(self):
+        default = '_detail'
+        iframe = '_detail_iframe'
+        return iframe if 'iframe' in self.request.GET else default
+
+    def get_queryset(self):
+        return self.model.objects.published()
+
+campaign_detail = CampaignDetail.as_view()
