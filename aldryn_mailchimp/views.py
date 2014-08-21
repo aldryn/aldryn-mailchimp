@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.conf import settings
 from django.contrib import messages
+from django.http import HttpResponseBadRequest, HttpResponseRedirect
 from django.shortcuts import redirect, get_object_or_404
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import FormView, DetailView
@@ -46,6 +47,18 @@ class SubscriptionView(FormView):
         else:
             messages.success(self.request, _(u'You have successfully subscribed to our mailing list.'))
         return redirect(form.cleaned_data['redirect_url'])
+
+    def form_invalid(self, form):
+        redirect_url = form.data.get('redirect_url')
+
+        if redirect_url:
+            message = _(u'Please enter a valid email.')
+            messages.error(self.request, message)
+            response = HttpResponseRedirect(redirect_url)
+        else:
+            # user has tampered with the redirect_url field.
+            response = HttpResponseBadRequest()
+        return response
 
 
 class CampaignDetail(DetailView):
