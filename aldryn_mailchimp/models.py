@@ -13,7 +13,7 @@ class SubscriptionPlugin(CMSPlugin):
         _('Save user\'s language'), default=True, help_text=_('Save the user\'s language based on the page language'))
 
     def __unicode__(self):
-        return str(self.list_id)
+        return unicode(self.list_id)
 
 
 class CampaignManager(models.Manager):
