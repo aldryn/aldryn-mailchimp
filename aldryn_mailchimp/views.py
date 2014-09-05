@@ -38,9 +38,11 @@ class SubscriptionView(FormView):
 
         try:
             h.subscribe_to_list(list_id=plugin.list_id, user_email=form.cleaned_data['email'], merge_vars=merge_vars)
-        except Exception, e:
-            if hasattr(e, 'code') and e.code in ERROR_MESSAGES:
-                message = ERROR_MESSAGES.get(e.code)
+        except Exception as exc:
+            if hasattr(exc, 'code') and self.request.user.is_superuser:
+                message = '%s (MailChimp Error (%s): %s)' % (ERROR_MESSAGES.get(exc.code), exc.code, exc)
+            elif hasattr(exc, 'code') and exc.code in ERROR_MESSAGES:
+                message = ERROR_MESSAGES.get(exc.code)
             else:
                 message = _(u'Oops, something must have gone wrong. Please try again later.')
             messages.error(self.request, message)
