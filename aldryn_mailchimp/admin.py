@@ -2,13 +2,21 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from .models import Campaign
+from .models import Campaign, Category, Keyword
+
+
+class KeywordInline(admin.TabularInline):
+    model = Keyword
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    inlines = (KeywordInline, )
 
 
 class CampaignAdmin(admin.ModelAdmin):
-    list_display = ('subject', 'mc_title', 'send_time', 'hidden')
+    list_display = ('subject', 'mc_title', 'send_time', 'hidden', 'category')
     search_fields = ('cid', 'subject', 'mc_title')
-    list_filter = ('hidden', )
+    list_filter = ('hidden', 'category')
     list_editable = ('hidden', )
     readonly_fields = ('cid', 'mc_title', 'subject', 'send_time', 'content_html', 'content_text', 'slug')
 
@@ -18,9 +26,9 @@ class CampaignAdmin(admin.ModelAdmin):
                 'cid', 'mc_title', 'subject', 'send_time',
             )}
          ),
-        (_('Visibility'), {
+        (_('Visibility & Classification'), {
             'fields': (
-                'hidden',
+                'hidden', 'category',
             )}
          ),
         (_('Content'), {
@@ -40,4 +48,6 @@ class CampaignAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return False
 
+
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Campaign, CampaignAdmin)

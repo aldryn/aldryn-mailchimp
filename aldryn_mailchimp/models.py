@@ -21,20 +21,52 @@ class CampaignManager(models.Manager):
         return self.filter(send_time__isnull=False, hidden=False)
 
 
+class Category(models.Model):
+    name = models.CharField(_('name'), max_length=255)
+    smart_match = models.BooleanField(
+        _('Matching'), default=True, help_text=_('Match incoming campaigns to categories based on keywords')
+    )
+
+    class Meta:
+        verbose_name = _('Category')
+        verbose_name_plural = _('Categories')
+
+    def __unicode__(self):
+        return unicode(self.name)
+
+
+class Keyword(models.Model):
+    value = models.CharField(_('value'), max_length=255, unique=True)
+    category = models.ForeignKey(Category, verbose_name=_('category'))
+    scope_name = models.BooleanField(_('search in campaign name'), default=True)
+    scope_subject = models.BooleanField(_('search in campaign subject'), default=False)
+    scope_content = models.BooleanField(_('search in campaign content'), default=False)
+
+    class Meta:
+        verbose_name = _('Keyword')
+        verbose_name_plural = _('Keywords')
+
+    def __unicode__(self):
+        return u'%s (%s)' % (self.value, self.category.name)
+
+
 class Campaign(models.Model):
     cid = models.CharField(_('campaign id'), max_length=255, editable=False)
     mc_title = models.CharField(_('campaign title'), max_length=255, editable=False)
-    subject = models.CharField(_('subject'), max_length=255, editable=False)
+    subject = models.CharField(_('subject'), max_length=255, blank=True, null=True, editable=False)
     send_time = models.DateTimeField(_('time sent'), blank=True, null=True, editable=False)
     content_text = models.TextField(_('content text'), blank=True, null=True, editable=False)
     content_html = models.TextField(_('content HTML'), blank=True, null=True, editable=False)
     slug = models.SlugField(_('slug (generated)'), editable=False)
     hidden = models.BooleanField(_('hidden'), default=False)
+    category = models.ForeignKey(Category, blank=True, null=True, help_text=_('leave empty to auto-match on import'))
 
     objects = CampaignManager()
 
     class Meta:
         ordering = ['-send_time']
+        verbose_name = _('Campaign')
+        verbose_name_plural = _('Campaigns')
 
     def __str__(self):
         return '%s (%s)' % (self.mc_title, self.subject)
@@ -46,6 +78,9 @@ class Campaign(models.Model):
 class CampaignArchivePlugin(CMSPlugin):
     count = models.PositiveSmallIntegerField(
         _('count'), null=True, blank=True, help_text=_('Leave blank to display all')
+    )
+    categories = models.ManyToManyField(
+        Category, verbose_name=_('filter by category/categories'), blank=True, null=True
     )
 
 
