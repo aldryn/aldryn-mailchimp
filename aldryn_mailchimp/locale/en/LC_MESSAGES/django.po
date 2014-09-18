@@ -3,20 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-18 09:21+0200\n"
-"PO-Revision-Date: 2014-03-10 11:06+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.7\n"
 
 #: admin.py:24
 msgid "MailChimp Info"
@@ -24,19 +23,19 @@ msgstr ""
 
 #: admin.py:29
 msgid "Visibility & Classification"
-msgstr "Sichtbarkeit & Klassifizierung"
+msgstr ""
 
 #: admin.py:34
 msgid "Content"
-msgstr "Inhalt"
+msgstr ""
 
 #: cms_app.py:9 cms_plugins.py:36
 msgid "Campaign Archive"
-msgstr "Kampagnen-Archiv"
+msgstr ""
 
 #: cms_plugins.py:16
 msgid "Subscription"
-msgstr "Registration"
+msgstr ""
 
 #: cms_plugins.py:18 cms_plugins.py:37 cms_plugins.py:55
 msgid "MailChimp"
@@ -44,7 +43,7 @@ msgstr ""
 
 #: cms_plugins.py:54
 msgid "Selected Campaigns"
-msgstr "Ausgewählte Kampagnen"
+msgstr ""
 
 #: forms.py:8
 msgid "E-mail"
@@ -52,148 +51,144 @@ msgstr ""
 
 #: models.py:11
 msgid "List ID"
-msgstr "Listen-ID"
+msgstr ""
 
 #: models.py:13
 msgid "Save user's language"
-msgstr "Sprache des Besuchers speichern"
+msgstr ""
 
 #: models.py:13
 msgid "Save the user's language based on the page language"
-msgstr "Speichere die Sprache des Besuchers anhand der Seitensprache"
+msgstr ""
 
 #: models.py:25
 msgid "name"
-msgstr "Name"
+msgstr ""
 
 #: models.py:27
 msgid "Matching"
-msgstr "Automatisches zuordnen"
+msgstr ""
 
 #: models.py:27
 msgid "Match incoming campaigns to categories based on keywords"
 msgstr ""
-"Ordne synchronisierte Kampagnen anhand der Schlüsselwörter automatisch "
-"dieser Kategorie zu"
 
 #: models.py:31
 msgid "Category"
-msgstr "Kategorie"
+msgstr ""
 
 #: models.py:32
 msgid "Categories"
-msgstr "Kategorien"
+msgstr ""
 
 #: models.py:39
 msgid "value"
-msgstr "Wert"
+msgstr ""
 
 #: models.py:40
 msgid "category"
-msgstr "Kategorie"
+msgstr ""
 
 #: models.py:41
 msgid "search in campaign name"
-msgstr "Suche in Kampagnen-Name"
+msgstr ""
 
 #: models.py:42
 msgid "search in campaign subject"
-msgstr "Suche in Kampagnen-Titel"
+msgstr ""
 
 #: models.py:43
 msgid "search in campaign content"
-msgstr "Suche in Kampagnen-Inhalt"
+msgstr ""
 
 #: models.py:46
 msgid "Keyword"
-msgstr "Schlüsselwort"
+msgstr ""
 
 #: models.py:47
 msgid "Keywords"
-msgstr "Schlüsselworter"
+msgstr ""
 
 #: models.py:54
 msgid "campaign id"
-msgstr "Kampagnen-ID"
+msgstr ""
 
 #: models.py:55
 msgid "campaign title"
-msgstr "Kampagnen Titel"
+msgstr ""
 
 #: models.py:56
 msgid "subject"
-msgstr "Betreff"
+msgstr ""
 
 #: models.py:57
 msgid "time sent"
-msgstr "Zeit versendet"
+msgstr ""
 
 #: models.py:58
 msgid "content text"
-msgstr "Inhalt (Text)"
+msgstr ""
 
 #: models.py:59
 msgid "content HTML"
-msgstr "Inhalt (HTML)"
+msgstr ""
 
 #: models.py:60
 msgid "slug (generated)"
-msgstr "Slug (generiert)"
+msgstr ""
 
 #: models.py:61
 msgid "hidden"
-msgstr "Versteckt"
+msgstr ""
 
 #: models.py:62
 msgid "leave empty to auto-match on import"
-msgstr "leerlassen um beim Import automatisch zuzuordnen"
+msgstr ""
 
 #: models.py:68
 msgid "Campaign"
-msgstr "Kampagne"
+msgstr ""
 
 #: models.py:69
 msgid "Campaigns"
-msgstr "Kampagnen"
+msgstr ""
 
 #: models.py:80
 msgid "count"
-msgstr "Anzahl"
+msgstr ""
 
 #: models.py:80
 msgid "Leave blank to display all"
-msgstr "Leerlassen um alle anzuzeigen"
+msgstr ""
 
 #: models.py:83
 msgid "filter by category/categories"
-msgstr "Nach Kategorie/Kategorien filtern"
+msgstr ""
 
 #: views.py:17
 msgid "Invalid API-Key"
-msgstr "Ungültiger API-Schlüssel"
+msgstr ""
 
 #: views.py:18
 msgid "The selected list does not exist."
-msgstr "Die gewählte Liste existiert nicht"
+msgstr ""
 
 #: views.py:19 views.py:20
 msgid "You are already subscribed to our list."
-msgstr "Sie haben sich bereits für unsere Liste registriert."
+msgstr ""
 
 #: views.py:47
 msgid "Oops, something must have gone wrong. Please try again later."
 msgstr ""
-"Da scheint ein Fehler passiert zu sein. Bitte versuchen Sie es später noch "
-"einmal."
 
 #: views.py:50
 msgid "You have successfully subscribed to our mailing list."
-msgstr "Ihre Registrierung für den Newsletter war erfolgreich."
+msgstr ""
 
 #: views.py:57
 msgid "Please enter a valid email."
-msgstr "Bitte geben Sie eine gültige Email-Adresse ein"
+msgstr ""
 
 #: templates/aldryn_mailchimp/snippets/_subscription.html:6
 msgid "Subscribe"
-msgstr "Registrieren"
+msgstr ""
