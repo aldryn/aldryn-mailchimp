@@ -39,7 +39,7 @@ class CampaignArchive(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         objects = Campaign.objects.published()
-        if instance.categories:
+        if instance.categories.exists():
             objects = objects.filter(category__in=instance.categories.all())
         if instance.count:
             objects = objects[:instance.count]
