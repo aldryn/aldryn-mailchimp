@@ -87,6 +87,9 @@ class CampaignArchivePlugin(CMSPlugin):
         Category, verbose_name=_('filter by category/categories'), blank=True, null=True
     )
 
+    def copy_relations(self, old_instance):
+        self.categories = old_instance.categories.all()
+
 
 class SelectedCampaignsPlugin(CMSPlugin):
     campaigns = models.ManyToManyField(Campaign)
