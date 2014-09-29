@@ -2,14 +2,17 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
+from adminsortable.admin import SortableAdmin, SortableTabularInline
+
 from .models import Campaign, Category, Keyword
 
 
-class KeywordInline(admin.TabularInline):
+class KeywordInline(SortableTabularInline):
     model = Keyword
+    extra = 0
 
 
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(SortableAdmin):
     inlines = (KeywordInline, )
 
 

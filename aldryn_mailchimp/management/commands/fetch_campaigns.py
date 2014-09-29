@@ -43,7 +43,7 @@ class Command(BaseCommand):
         for kw_group, campaign_attr in attr_list:
             if not category_id:
                 for kw, cat in self.keywords[kw_group].items():
-                    if hasattr(campaign, campaign_attr) and kw in getattr(campaign, campaign_attr).lower():
+                    if getattr(campaign, campaign_attr) and kw in getattr(campaign, campaign_attr).lower():
                         category_id = cat
                         break
 

@@ -4,6 +4,8 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from cms.models.pluginmodel import CMSPlugin
+from adminsortable.models import Sortable
+from adminsortable.fields import SortableForeignKey
 
 
 class SubscriptionPlugin(CMSPlugin):
@@ -21,13 +23,14 @@ class CampaignManager(models.Manager):
         return self.filter(send_time__isnull=False, hidden=False)
 
 
-class Category(models.Model):
+class Category(Sortable):
     name = models.CharField(_('name'), max_length=255)
     smart_match = models.BooleanField(
         _('Matching'), default=True, help_text=_('Match incoming campaigns to categories based on keywords')
     )
 
-    class Meta:
+    class Meta(Sortable.Meta):
+        ordering = ('order', 'name')
         verbose_name = _('Category')
         verbose_name_plural = _('Categories')
 
@@ -35,14 +38,15 @@ class Category(models.Model):
         return unicode(self.name)
 
 
-class Keyword(models.Model):
+class Keyword(Sortable):
     value = models.CharField(_('value'), max_length=255, unique=True)
-    category = models.ForeignKey(Category, verbose_name=_('category'))
+    category = SortableForeignKey(Category, verbose_name=_('category'))
     scope_name = models.BooleanField(_('search in campaign name'), default=True)
     scope_subject = models.BooleanField(_('search in campaign subject'), default=False)
     scope_content = models.BooleanField(_('search in campaign content'), default=False)
 
-    class Meta:
+    class Meta(Sortable.Meta):
+        ordering = ('order', 'value')
         verbose_name = _('Keyword')
         verbose_name_plural = _('Keywords')
 
