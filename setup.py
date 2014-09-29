@@ -4,7 +4,8 @@ from setuptools import setup, find_packages
 from aldryn_mailchimp import __version__
 
 REQUIREMENTS = [
-    'pyrate>=0.5a5'
+    'django-admin-sortable',
+    'pyrate>=0.5a5',
 ]
 
 CLASSIFIERS = [
