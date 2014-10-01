@@ -17,8 +17,8 @@ class CategoryAdmin(SortableAdmin):
 
 
 class CampaignAdmin(admin.ModelAdmin):
-    list_display = ('subject', 'mc_title', 'send_time', 'hidden', 'category')
-    search_fields = ('cid', 'subject', 'mc_title')
+    list_display = ('mc_title', 'subject', 'display_name', 'send_time', 'hidden', 'category')
+    search_fields = ('cid', 'subject', 'mc_title', 'display_name',)
     list_filter = ('hidden', 'category')
     list_editable = ('hidden', )
     readonly_fields = ('cid', 'mc_title', 'subject', 'send_time', 'content_html', 'content_text', 'slug')
@@ -31,7 +31,7 @@ class CampaignAdmin(admin.ModelAdmin):
          ),
         (_('Visibility & Classification'), {
             'fields': (
-                'hidden', 'category',
+                'display_name', 'hidden', 'category',
             )}
          ),
         (_('Content'), {

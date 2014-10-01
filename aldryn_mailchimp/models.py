@@ -58,6 +58,7 @@ class Campaign(models.Model):
     cid = models.CharField(_('campaign id'), max_length=255, editable=False)
     mc_title = models.CharField(_('campaign title'), max_length=255, editable=False)
     subject = models.CharField(_('subject'), max_length=255, blank=True, null=True, editable=False)
+    display_name = models.CharField(_('display name'), max_length=255, blank=True, null=True)
     send_time = models.DateTimeField(_('time sent'), blank=True, null=True, editable=False)
     content_text = models.TextField(_('content text'), blank=True, null=True, editable=False)
     content_html = models.TextField(_('content HTML'), blank=True, null=True, editable=False)
@@ -72,8 +73,8 @@ class Campaign(models.Model):
         verbose_name = _('Campaign')
         verbose_name_plural = _('Campaigns')
 
-    def __str__(self):
-        return '%s (%s)' % (self.mc_title, self.subject)
+    def __unicode__(self):
+        return self.display_name or self.subject
 
     def get_absolute_url(self):
         return reverse('mailchimp_campaign_detail', kwargs={'pk': self.pk, 'slug': self.slug})
