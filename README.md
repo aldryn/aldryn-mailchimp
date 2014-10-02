@@ -12,7 +12,7 @@ When all above is done, you can add MailChimp integration plugins to placeholder
 Version 0.2.4 introduced categories with automatic matching. You can define categories and add keywords to those categories to automatically sort synced campaigns into categories. You can define priorities for both campaigns and their keywords.
 
 ### Matching
-Once the campaign has been fetched from the automatic matcher will go through all categories (starting from the top as defined in ``/admin/aldryn_mailchimp/category/``) and scan each campaign for the defined keywords. You can specify keywords to be searched in any or multiple of the following three:
+Once the campaigns have been fetched, the automatic matcher will go through all categories (starting from the top as defined in ``/admin/aldryn_mailchimp/category/``) and scan each campaign for the defined keywords. You can specify keywords to be searched in any or multiple of the following three:
 
 * campaign title
 * campaign subject
