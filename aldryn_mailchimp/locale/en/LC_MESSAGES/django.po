@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-18 09:21+0200\n"
+"POT-Creation-Date: 2014-10-21 19:10-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: admin.py:24
+#: admin.py:27
 msgid "MailChimp Info"
 msgstr ""
 
-#: admin.py:29
+#: admin.py:32
 msgid "Visibility & Classification"
 msgstr ""
 
-#: admin.py:34
+#: admin.py:37
 msgid "Content"
 msgstr ""
 
@@ -49,119 +49,123 @@ msgstr ""
 msgid "E-mail"
 msgstr ""
 
-#: models.py:11
+#: models.py:13
 msgid "List ID"
 msgstr ""
 
-#: models.py:13
+#: models.py:15
 msgid "Save user's language"
 msgstr ""
 
-#: models.py:13
+#: models.py:15
 msgid "Save the user's language based on the page language"
 msgstr ""
 
-#: models.py:25
+#: models.py:27
 msgid "name"
 msgstr ""
 
-#: models.py:27
+#: models.py:29
 msgid "Matching"
 msgstr ""
 
-#: models.py:27
+#: models.py:29
 msgid "Match incoming campaigns to categories based on keywords"
 msgstr ""
 
-#: models.py:31
+#: models.py:34
 msgid "Category"
 msgstr ""
 
-#: models.py:32
+#: models.py:35
 msgid "Categories"
 msgstr ""
 
-#: models.py:39
+#: models.py:42
 msgid "value"
 msgstr ""
 
-#: models.py:40
+#: models.py:43
 msgid "category"
 msgstr ""
 
-#: models.py:41
+#: models.py:44
 msgid "search in campaign name"
 msgstr ""
 
-#: models.py:42
+#: models.py:45
 msgid "search in campaign subject"
 msgstr ""
 
-#: models.py:43
+#: models.py:46
 msgid "search in campaign content"
 msgstr ""
 
-#: models.py:46
+#: models.py:50
 msgid "Keyword"
 msgstr ""
 
-#: models.py:47
+#: models.py:51
 msgid "Keywords"
 msgstr ""
 
-#: models.py:54
+#: models.py:58
 msgid "campaign id"
 msgstr ""
 
-#: models.py:55
+#: models.py:59
 msgid "campaign title"
 msgstr ""
 
-#: models.py:56
+#: models.py:60
 msgid "subject"
 msgstr ""
 
-#: models.py:57
-msgid "time sent"
-msgstr ""
-
-#: models.py:58
-msgid "content text"
-msgstr ""
-
-#: models.py:59
-msgid "content HTML"
-msgstr ""
-
-#: models.py:60
-msgid "slug (generated)"
-msgstr ""
-
 #: models.py:61
-msgid "hidden"
+msgid "display name"
 msgstr ""
 
 #: models.py:62
+msgid "time sent"
+msgstr ""
+
+#: models.py:63
+msgid "content text"
+msgstr ""
+
+#: models.py:64
+msgid "content HTML"
+msgstr ""
+
+#: models.py:65
+msgid "slug (generated)"
+msgstr ""
+
+#: models.py:66
+msgid "hidden"
+msgstr ""
+
+#: models.py:67
 msgid "leave empty to auto-match on import"
 msgstr ""
 
-#: models.py:68
+#: models.py:73
 msgid "Campaign"
 msgstr ""
 
-#: models.py:69
+#: models.py:74
 msgid "Campaigns"
 msgstr ""
 
-#: models.py:80
+#: models.py:85
 msgid "count"
 msgstr ""
 
-#: models.py:80
+#: models.py:85
 msgid "Leave blank to display all"
 msgstr ""
 
-#: models.py:83
+#: models.py:88
 msgid "filter by category/categories"
 msgstr ""
 
@@ -177,15 +181,15 @@ msgstr ""
 msgid "You are already subscribed to our list."
 msgstr ""
 
-#: views.py:47
+#: views.py:45
 msgid "Oops, something must have gone wrong. Please try again later."
 msgstr ""
 
-#: views.py:50
+#: views.py:52
 msgid "You have successfully subscribed to our mailing list."
 msgstr ""
 
-#: views.py:57
+#: views.py:59
 msgid "Please enter a valid email."
 msgstr ""
 

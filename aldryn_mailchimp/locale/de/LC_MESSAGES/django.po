@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-18 09:21+0200\n"
+"POT-Creation-Date: 2014-10-21 19:10-0400\n"
 "PO-Revision-Date: 2014-03-10 11:06+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -18,15 +18,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.7\n"
 
-#: admin.py:24
+#: admin.py:27
 msgid "MailChimp Info"
 msgstr ""
 
-#: admin.py:29
+#: admin.py:32
 msgid "Visibility & Classification"
 msgstr "Sichtbarkeit & Klassifizierung"
 
-#: admin.py:34
+#: admin.py:37
 msgid "Content"
 msgstr "Inhalt"
 
@@ -50,121 +50,125 @@ msgstr "Ausgewählte Kampagnen"
 msgid "E-mail"
 msgstr ""
 
-#: models.py:11
+#: models.py:13
 msgid "List ID"
 msgstr "Listen-ID"
 
-#: models.py:13
+#: models.py:15
 msgid "Save user's language"
 msgstr "Sprache des Besuchers speichern"
 
-#: models.py:13
+#: models.py:15
 msgid "Save the user's language based on the page language"
 msgstr "Speichere die Sprache des Besuchers anhand der Seitensprache"
 
-#: models.py:25
+#: models.py:27
 msgid "name"
 msgstr "Name"
 
-#: models.py:27
+#: models.py:29
 msgid "Matching"
 msgstr "Automatisches zuordnen"
 
-#: models.py:27
+#: models.py:29
 msgid "Match incoming campaigns to categories based on keywords"
 msgstr ""
 "Ordne synchronisierte Kampagnen anhand der Schlüsselwörter automatisch "
 "dieser Kategorie zu"
 
-#: models.py:31
+#: models.py:34
 msgid "Category"
 msgstr "Kategorie"
 
-#: models.py:32
+#: models.py:35
 msgid "Categories"
 msgstr "Kategorien"
 
-#: models.py:39
+#: models.py:42
 msgid "value"
 msgstr "Wert"
 
-#: models.py:40
+#: models.py:43
 msgid "category"
 msgstr "Kategorie"
 
-#: models.py:41
+#: models.py:44
 msgid "search in campaign name"
 msgstr "Suche in Kampagnen-Name"
 
-#: models.py:42
+#: models.py:45
 msgid "search in campaign subject"
 msgstr "Suche in Kampagnen-Titel"
 
-#: models.py:43
+#: models.py:46
 msgid "search in campaign content"
 msgstr "Suche in Kampagnen-Inhalt"
 
-#: models.py:46
+#: models.py:50
 msgid "Keyword"
 msgstr "Schlüsselwort"
 
-#: models.py:47
+#: models.py:51
 msgid "Keywords"
 msgstr "Schlüsselworter"
 
-#: models.py:54
+#: models.py:58
 msgid "campaign id"
 msgstr "Kampagnen-ID"
 
-#: models.py:55
+#: models.py:59
 msgid "campaign title"
 msgstr "Kampagnen Titel"
 
-#: models.py:56
+#: models.py:60
 msgid "subject"
 msgstr "Betreff"
 
-#: models.py:57
+#: models.py:61
+msgid "display name"
+msgstr ""
+
+#: models.py:62
 msgid "time sent"
 msgstr "Zeit versendet"
 
-#: models.py:58
+#: models.py:63
 msgid "content text"
 msgstr "Inhalt (Text)"
 
-#: models.py:59
+#: models.py:64
 msgid "content HTML"
 msgstr "Inhalt (HTML)"
 
-#: models.py:60
+#: models.py:65
 msgid "slug (generated)"
 msgstr "Slug (generiert)"
 
-#: models.py:61
+#: models.py:66
 msgid "hidden"
 msgstr "Versteckt"
 
-#: models.py:62
+#: models.py:67
 msgid "leave empty to auto-match on import"
 msgstr "leerlassen um beim Import automatisch zuzuordnen"
 
-#: models.py:68
+#: models.py:73
 msgid "Campaign"
 msgstr "Kampagne"
 
-#: models.py:69
+#: models.py:74
 msgid "Campaigns"
 msgstr "Kampagnen"
 
-#: models.py:80
+#: models.py:85
 msgid "count"
 msgstr "Anzahl"
 
-#: models.py:80
+#: models.py:85
 msgid "Leave blank to display all"
 msgstr "Leerlassen um alle anzuzeigen"
 
-#: models.py:83
+#: models.py:88
 msgid "filter by category/categories"
 msgstr "Nach Kategorie/Kategorien filtern"
 
@@ -180,17 +184,17 @@ msgstr "Die gewählte Liste existiert nicht"
 msgid "You are already subscribed to our list."
 msgstr "Sie haben sich bereits für unsere Liste registriert."
 
-#: views.py:47
+#: views.py:45
 msgid "Oops, something must have gone wrong. Please try again later."
 msgstr ""
 "Da scheint ein Fehler passiert zu sein. Bitte versuchen Sie es später noch "
 "einmal."
 
-#: views.py:50
+#: views.py:52
 msgid "You have successfully subscribed to our mailing list."
 msgstr "Ihre Registrierung für den Newsletter war erfolgreich."
 
-#: views.py:57
+#: views.py:59
 msgid "Please enter a valid email."
 msgstr "Bitte geben Sie eine gültige Email-Adresse ein"
 
