@@ -3,7 +3,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.http import HttpResponseBadRequest, HttpResponseRedirect
 from django.shortcuts import redirect, get_object_or_404
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext, ugettext_lazy as _
 from django.views.generic import FormView, DetailView
 
 from pyrate.services import mailchimp
@@ -39,15 +39,17 @@ class SubscriptionView(FormView):
         try:
             h.subscribe_to_list(list_id=plugin.list_id, user_email=form.cleaned_data['email'], merge_vars=merge_vars)
         except Exception as exc:
-            if hasattr(exc, 'code') and self.request.user.is_superuser:
-                message = '%s (MailChimp Error (%s): %s)' % (ERROR_MESSAGES.get(exc.code), exc.code, exc)
-            elif hasattr(exc, 'code') and exc.code in ERROR_MESSAGES:
-                message = ERROR_MESSAGES.get(exc.code)
-            else:
-                message = _(u'Oops, something must have gone wrong. Please try again later.')
+            try:
+                message = ERROR_MESSAGES[exc.code]
+            except (AttributeError, KeyError):
+                message = ugettext(u'Oops, something must have gone wrong. Please try again later.')
+
+            if self.request.user.is_superuser and hasattr(exc, 'code'):
+                message = u'%s (MailChimp Error (%s): %s)'% (message, exc.code, exc)
+
             messages.error(self.request, message)
         else:
-            messages.success(self.request, _(u'You have successfully subscribed to our mailing list.'))
+            messages.success(self.request, ugettext(u'You have successfully subscribed to our mailing list.'))
         return redirect(form.cleaned_data['redirect_url'])
 
     def form_invalid(self, form):
