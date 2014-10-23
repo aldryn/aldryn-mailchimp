@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import patterns, url
+from django.views.decorators.cache import never_cache
 from django.utils.translation import ugettext_lazy as _
 
 from cms.plugin_base import CMSPluginBase
@@ -11,7 +12,7 @@ from .forms import SubscriptionPluginForm
 
 
 class SubscriptionCMSPlugin(CMSPluginBase):
-
+    cache = False
     render_template = 'aldryn_mailchimp/snippets/_subscription.html'
     name = _('Subscription')
     model = SubscriptionPlugin
@@ -23,9 +24,14 @@ class SubscriptionCMSPlugin(CMSPluginBase):
                                                           'redirect_url': request.get_full_path()})
         return context
 
+    def get_subscription_view(self):
+        return SubscriptionView.as_view()
+
     def get_plugin_urls(self):
+        subscription_view = self.get_subscription_view()
+
         return patterns('',
-            url(r'^subscribe/$', SubscriptionView.as_view(), name='aldryn-mailchimp-subscribe'),
+            url(r'^subscribe/$', never_cache(subscription_view), name='aldryn-mailchimp-subscribe'),
         )
 
 plugin_pool.register_plugin(SubscriptionCMSPlugin)
