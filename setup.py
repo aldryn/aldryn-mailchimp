@@ -6,6 +6,7 @@ from aldryn_mailchimp import __version__
 REQUIREMENTS = [
     'django-admin-sortable',
     'pyrate>=0.5a5',
+    'oauthlib<0.7.0',
 ]
 
 CLASSIFIERS = [
