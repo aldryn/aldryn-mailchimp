@@ -1,5 +1,14 @@
 # Aldryn MailChimp
 
+Aldryn Locations is the easiest way to integrate Google Maps into [Aldryn](http://aldryn.com) and [django
+CMS](http://django-cms) sites via Google's API.
+
+It's fully featured, and includes several plugins to provide support for:
+
+* multiple locations
+* location information
+* routes and directions
+* searching
 
 To activate MailChimp integration:
 
