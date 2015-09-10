@@ -31,7 +31,8 @@ class SubscriptionView(FormView):
 
     def form_valid(self, form):
         h = mailchimp.MailchimpPyrate(settings.MAILCHIMP_API_KEY)
-        plugin = get_object_or_404(SubscriptionPlugin, pk=form.cleaned_data['plugin_id'])
+        plugin = get_object_or_404(
+            SubscriptionPlugin, pk=form.cleaned_data['plugin_id'])
 
         merge_vars = None
         if plugin.assign_language:
@@ -40,26 +41,33 @@ class SubscriptionView(FormView):
                 merge_vars = {'mc_language': language}
 
         try:
-            h.subscribe_to_list(list_id=plugin.list_id, user_email=form.cleaned_data['email'], merge_vars=merge_vars)
+            h.subscribe_to_list(
+                list_id=plugin.list_id,
+                user_email=form.cleaned_data['email'],
+                merge_vars=merge_vars
+            )
         except Exception as exc:
             try:
                 message = ERROR_MESSAGES[exc.code]
             except (AttributeError, KeyError):
-                message = ugettext(u'Oops, something must have gone wrong. Please try again later.')
+                message = ugettext('Oops, something must have gone wrong. '
+                                   'Please try again later.')
 
             if self.request.user.is_superuser and hasattr(exc, 'code'):
-                message = u'%s (MailChimp Error (%s): %s)'% (message, exc.code, exc)
+                message = ugettext(
+                    '%s (MailChimp Error (%s): %s)') % (message, exc.code, exc)
 
             messages.error(self.request, message)
         else:
-            messages.success(self.request, ugettext(u'You have successfully subscribed to our mailing list.'))
+            messages.success(self.request, ugettext(
+                'You have successfully subscribed to our mailing list.'))
         return redirect(form.cleaned_data['redirect_url'])
 
     def form_invalid(self, form):
         redirect_url = form.data.get('redirect_url')
 
         if redirect_url:
-            message = _(u'Please enter a valid email.')
+            message = _('Please enter a valid email.')
             messages.error(self.request, message)
             response = HttpResponseRedirect(redirect_url)
         else:
