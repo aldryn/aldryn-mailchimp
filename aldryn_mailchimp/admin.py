@@ -17,11 +17,13 @@ class CategoryAdmin(SortableAdmin):
 
 
 class CampaignAdmin(admin.ModelAdmin):
-    list_display = ('mc_title', 'subject', 'display_name', 'send_time', 'hidden', 'category')
+    list_display = ('mc_title', 'subject', 'display_name', 'send_time',
+                    'hidden', 'category')
     search_fields = ('cid', 'subject', 'mc_title', 'display_name',)
     list_filter = ('hidden', 'category')
     list_editable = ('hidden', )
-    readonly_fields = ('cid', 'mc_title', 'subject', 'send_time', 'content_html', 'content_text', 'slug')
+    readonly_fields = ('cid', 'mc_title', 'subject', 'send_time',
+                       'content_html', 'content_text', 'slug')
 
     _fieldsets = (
         (_('MailChimp Info'), {

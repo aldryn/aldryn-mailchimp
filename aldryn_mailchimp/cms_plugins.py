@@ -20,8 +20,9 @@ class SubscriptionCMSPlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         request = context['request']
-        context['form'] = SubscriptionPluginForm(initial={'plugin_id': instance.pk,
-                                                          'redirect_url': request.get_full_path()})
+        context['form'] = SubscriptionPluginForm(
+            initial={'plugin_id': instance.pk,
+                     'redirect_url': request.get_full_path()})
         return context
 
     def get_subscription_view(self):
@@ -31,7 +32,9 @@ class SubscriptionCMSPlugin(CMSPluginBase):
         subscription_view = self.get_subscription_view()
 
         return patterns('',
-            url(r'^subscribe/$', never_cache(subscription_view), name='aldryn-mailchimp-subscribe'),
+            url(
+                r'^subscribe/$', never_cache(subscription_view),
+                name='aldryn-mailchimp-subscribe'),
         )
 
 plugin_pool.register_plugin(SubscriptionCMSPlugin)
