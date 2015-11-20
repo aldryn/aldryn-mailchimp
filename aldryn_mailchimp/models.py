@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 from django.core.urlresolvers import reverse
 from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
 from cms.models.pluginmodel import CMSPlugin
@@ -8,6 +10,7 @@ from adminsortable.models import Sortable
 from adminsortable.fields import SortableForeignKey
 
 
+@python_2_unicode_compatible
 class SubscriptionPlugin(CMSPlugin):
 
     list_id = models.CharField(_('List ID'), max_length=20)
@@ -15,7 +18,7 @@ class SubscriptionPlugin(CMSPlugin):
         _('Save user\'s language'), default=True, help_text=_(
             'Save the user\'s language based on the page language'))
 
-    def __unicode__(self):
+    def __str__(self):
         return unicode(self.list_id)
 
 
@@ -23,7 +26,7 @@ class CampaignManager(models.Manager):
     def published(self):
         return self.filter(send_time__isnull=False, hidden=False)
 
-
+@python_2_unicode_compatible
 class Category(Sortable):
     name = models.CharField(_('name'), max_length=255)
     smart_match = models.BooleanField(
@@ -36,10 +39,11 @@ class Category(Sortable):
         verbose_name = _('Category')
         verbose_name_plural = _('Categories')
 
-    def __unicode__(self):
+    def __str__(self):
         return unicode(self.name)
 
 
+@python_2_unicode_compatible
 class Keyword(Sortable):
     value = models.CharField(_('value'), max_length=255, unique=True)
     category = SortableForeignKey(Category, verbose_name=_('category'))
@@ -54,10 +58,11 @@ class Keyword(Sortable):
         verbose_name = _('Keyword')
         verbose_name_plural = _('Keywords')
 
-    def __unicode__(self):
-        return u'%s (%s)' % (self.value, self.category.name)
+    def __str__(self):
+        return '%s (%s)' % (self.value, self.category.name)
 
 
+@python_2_unicode_compatible
 class Campaign(models.Model):
     cid = models.CharField(_('campaign id'), max_length=255, editable=False)
     mc_title = models.CharField(
@@ -86,7 +91,7 @@ class Campaign(models.Model):
         verbose_name = _('Campaign')
         verbose_name_plural = _('Campaigns')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.display_name or self.subject
 
     def get_absolute_url(self):
