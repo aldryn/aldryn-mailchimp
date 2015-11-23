@@ -8,7 +8,7 @@ import adminsortable.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('cms', '0013_urlconfrevision'),
+        ('cms', '__latest__'),
     ]
 
     operations = [
